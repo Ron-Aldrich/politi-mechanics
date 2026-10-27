@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>POLITI-KNOWS: How to Play</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f3f7ff;--card:#fff;--ink:#14213d;--mute:#4a5878;--blue:#1d3f9e;--red:#d7263d;--sun:#ffc83d;--line:#cfd9f2;--on-blue:#fff;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e1630;--card:#18244a;--ink:#eef2ff;--mute:#b4c0e6;--blue:#8fb0ff;--line:#2c3c70;--on-blue:#0e1630}}
+:root[data-theme="dark"]{--bg:#0e1630;--card:#18244a;--ink:#eef2ff;--mute:#b4c0e6;--blue:#8fb0ff;--line:#2c3c70;--on-blue:#0e1630}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(72px + env(safe-area-inset-top,0px))}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 clamp(1rem,.95rem + .3vw,1.2rem)/1.65 Nunito,system-ui,sans-serif}
+h1,h2,h3{font-family:"Baloo 2",system-ui,sans-serif;line-height:1.15;margin:0 0 .5em}
+h1{font-size:clamp(2.6rem,9vw,5.5rem);font-weight:800}
+h2{font-size:clamp(1.8rem,5vw,2.8rem);font-weight:800;color:var(--blue)}
+h3{font-size:1.3rem;font-weight:800}
+p{margin:0 0 1em;max-width:62ch}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--red);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1050px;margin:0 auto;padding:0 clamp(16px,4vw,32px)}
+section{padding:clamp(40px,7vw,80px) 0;border-top:3px dashed var(--line)}
+.bar{position:sticky;top:0;z-index:20;background:var(--bg);border-bottom:3px solid var(--blue);padding-top:env(safe-area-inset-top,0px)}
+.bar .wrap{display:flex;gap:12px;align-items:center;justify-content:space-between;min-height:60px;flex-wrap:wrap;padding-top:6px;padding-bottom:6px}
+.logo{font:800 1.3rem "Baloo 2",sans-serif;text-decoration:none;color:var(--blue)}
+nav{display:flex;gap:4px;overflow-x:auto;max-width:100%}
+nav a{padding:6px 12px;border-radius:99px;text-decoration:none;font-weight:700;font-size:.95rem;white-space:nowrap}
+nav a:hover{background:var(--sun);color:#14213d}
+.toggle{display:inline-flex;border:3px solid var(--blue);border-radius:99px;overflow:hidden}
+.toggle button{font:700 .95rem Nunito,sans-serif;border:0;padding:8px 14px;background:transparent;color:var(--ink);cursor:pointer;min-height:44px}
+.toggle button[aria-pressed="true"]{background:var(--blue);color:var(--on-blue)}
+.hero{padding:clamp(40px,9vw,100px) 0 clamp(40px,7vw,70px);border:0}
+.hero h1 span{display:inline-block;background:var(--sun);color:#14213d;padding:0 .2em;border-radius:.15em;transform:rotate(-2deg)}
+.lead{font-size:clamp(1.15rem,1rem + 1vw,1.6rem);max-width:30ch;font-weight:700}
+.btn{display:inline-block;background:var(--red);color:#fff;font-weight:800;padding:14px 24px;border-radius:99px;text-decoration:none;margin:8px 8px 0 0;min-height:48px}
+.btn.alt{background:transparent;color:var(--ink);border:3px solid var(--blue)}
+.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr))}
+.card{background:var(--card);border:3px solid var(--line);border-radius:18px;padding:20px}
+.card h3{margin-bottom:.3em}
+.card p:last-child{margin-bottom:0}
+.tag{display:inline-block;font-weight:800;font-size:.85rem;padding:2px 10px;border-radius:99px;background:var(--sun);color:#14213d;margin-bottom:8px}
+.civic{border-color:#2e9e5b}.trapo{border-color:var(--red)}.voter{border-color:var(--blue)}
+.steps{counter-reset:s;display:grid;gap:14px;padding:0;list-style:none}
+.steps li{counter-increment:s;background:var(--card);border:3px solid var(--line);border-radius:18px;padding:18px 18px 18px 74px;position:relative}
+.steps li::before{content:counter(s);position:absolute;left:16px;top:14px;width:42px;height:42px;border-radius:50%;background:var(--blue);color:var(--on-blue);display:grid;place-items:center;font:800 1.3rem "Baloo 2",sans-serif}
+.steps li p{margin:0}
+.note{background:var(--sun);color:#14213d;border-radius:14px;padding:14px 18px;font-weight:700;max-width:62ch}
+.big{font:800 clamp(2rem,8vw,3.4rem) "Baloo 2",sans-serif;color:var(--red);line-height:1}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.tabs button{font:800 1rem "Baloo 2",sans-serif;border:3px solid var(--blue);background:transparent;color:var(--ink);border-radius:99px;padding:8px 16px;cursor:pointer;min-height:44px}
+.tabs button[aria-selected="true"]{background:var(--blue);color:var(--on-blue)}
+.panel{background:var(--card);border:3px solid var(--blue);border-radius:18px;padding:clamp(18px,4vw,28px)}
+.panel[hidden]{display:none}
+.panel .copies{font-weight:800;color:var(--red)}
+.tbl{width:100%;border-collapse:collapse;background:var(--card);border-radius:14px;overflow:hidden}
+.tbl th,.tbl td{padding:12px 14px;text-align:left;border-bottom:2px solid var(--line)}
+.tbl th{background:var(--blue);color:var(--on-blue);font-family:"Baloo 2",sans-serif}
+.scroll{overflow-x:auto}
+.plus{color:#1f8a4c;font-weight:800}.minus{color:var(--red);font-weight:800}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .plus{color:#6fe3a0}}
+details{background:var(--card);border:3px solid var(--line);border-radius:14px;padding:12px 16px;margin-bottom:10px}
+summary{font-weight:800;cursor:pointer;min-height:32px}
+details[open]{border-color:var(--blue)}
+.compare{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr))}
+body[data-mode="simple"] .full{display:none}
+body[data-mode="full"] .simple{display:none}
+footer{padding:40px 0 60px;border-top:3px solid var(--blue);color:var(--mute)}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body data-mode="simple">
+<header class="bar"><div class="wrap">
+<a class="logo" href="#top">POLITI-KNOWS</a>
+<nav aria-label="Sections"><a href="#goal">Goal</a><a href="#roles">Roles</a><a href="#setup">Setup</a><a href="#campaign">Campaign</a><a href="#cards">Action Cards</a><a href="#election">Election</a><a href="#ip">Points</a></nav>
+<div class="toggle" role="group" aria-label="Reading level">
+<button type="button" data-set="simple" aria-pressed="true">Easy words</button>
+<button type="button" data-set="full" aria-pressed="false">Full rules</button>
+</div></div></header>
+
+<main id="top">
+<section class="hero"><div class="wrap">
+<h1>Politi-<span>Knows</span></h1>
+<p class="lead">A game where your class picks a new SK Chairperson.</p>
+<p class="simple">You will play pretend candidates and voters. Think hard, listen well, and vote for the person who will help your community the most!</p>
+<p class="full">A political strategy and civic education card game for 7 to 10 players that simulates the campaign and election of a Sangguniang Kabataan (SK) Chairperson. This is the Playtesting Edition.</p>
+<a class="btn" href="#goal">Start learning</a><a class="btn alt" href="#cards">See the action cards</a>
+</div></section>
+
+<section id="goal"><div class="wrap">
+<h2>What is the goal?</h2>
+<div class="grid">
+<div class="card"><span class="tag">Candidates</span><h3>Win the election</h3><p>Show good ideas, make friends, and get the most votes.</p></div>
+<div class="card"><span class="tag">Voters</span><h3>Find the honest leader</h3><p>Ask questions, find out who is playing fair, and vote wisely.</p></div>
+<div class="card"><span class="tag">Moderator</span><h3>Be the referee</h3><p>The moderator does not play. They keep secrets and make sure everyone follows the rules.</p></div>
+</div>
+<p style="margin-top:20px" class="full">The game explores how political choices, campaign promises, corruption, and civic participation influence electoral outcomes and governance.</p>
+<p style="margin-top:20px" class="simple note">Big idea: voting is how a community chooses its leader, and a good voter checks who is honest first.</p>
+</div></section>
+
+<section id="roles"><div class="wrap">
+<h2>Secret roles</h2>
+<p>Everyone gets one Role Card. <strong>Keep it secret!</strong> Only show it if a rule tells you to.</p>
+<div class="grid">
+<div class="card voter"><span class="tag">Most players</span><h3>Voter</h3>
+<p class="simple">You play Action Cards to learn about the candidates. Then you vote for one.</p>
+<p class="full">Uses Action Cards to investigate candidates and influence the campaign. Votes for one candidate during the election.</p></div>
+<div class="card civic"><span class="tag">1 player</span><h3>Civic Candidate</h3>
+<p class="simple">The honest candidate. You win by sharing good ideas for the community.</p>
+<p class="full">Campaigns by presenting policy proposals and seeks to win through policy commitments and voter support.</p></div>
+<div class="card trapo"><span class="tag">1 or 2 players</span><h3>TraPo Candidate</h3>
+<p class="simple">TraPo means a “traditional politician.” You campaign too, but you can secretly offer rewards for votes. That is cheating, and it is called vote buying.</p>
+<p class="full">Campaigns like other candidates, but may secretly initiate vote-buying deals during the campaign.</p></div>
+</div>
+<h3 style="margin-top:28px">How many of each?</h3>
+<div class="scroll"><table class="tbl"><thead><tr><th>Players</th><th>Civic</th><th>TraPo</th><th>Voters</th></tr></thead>
+<tbody><tr><td>7</td><td>1</td><td>1</td><td>5</td></tr><tr><td>8</td><td>1</td><td>1</td><td>6</td></tr><tr><td>9</td><td>1</td><td>2</td><td>6</td></tr><tr><td>10</td><td>1</td><td>2</td><td>7</td></tr></tbody></table></div>
+<p style="margin-top:12px">Everyone can vote, even the candidates. The moderator cannot.</p>
+</div></section>
+
+<section id="setup"><div class="wrap">
+<h2>What you need</h2>
+<div class="grid">
+<div class="card"><h3>Role Cards</h3><p>10 cards. They give secret jobs.</p></div>
+<div class="card"><h3>Platform Cards</h3><p>45 cards. Each is a plan to help the community. 40 follow the 10 CBYDP topics, and 5 are blank so candidates can write their own idea.</p></div>
+<div class="card"><h3>Action Cards</h3><p>40 cards for voters. They help you learn the truth.</p></div>
+<div class="card"><h3>Vote Buying Cards</h3><p>5 cards. Only the moderator holds them.</p></div>
+<div class="card"><h3>Ballot Chips and Ballot Box</h3><p>Everyone gets 1 chip to vote. Use an erasable marker to write your choice.</p></div>
+<div class="card"><h3>Influence Points (IP)</h3><p>Tokens that show how much trust and power you have.</p></div>
+</div>
+<h3 style="margin-top:28px">The 10 CBYDP topics</h3>
+<p class="simple">CBYDP is the plan for helping young people in a barangay. Every Platform Card belongs to one of these topics.</p>
+<p class="full">Comprehensive Barangay Youth Development Plan categories used on Platform Cards.</p>
+<div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,190px),1fr))">
+<div class="card">Health</div><div class="card">Education</div><div class="card">Economic Empowerment</div><div class="card">Social Inclusion and Equity</div><div class="card">Peacebuilding and Security</div><div class="card">Governance and Active Citizenship</div><div class="card">Environment</div><div class="card">Agriculture</div><div class="card">Global Mobility</div><div class="card">Active Citizenship and Local Governance</div>
+</div>
+<h3 style="margin-top:28px">Set up the game</h3>
+<ol class="steps">
+<li><p>Pick a moderator.</p></li>
+<li><p>Shuffle the Role Cards and hand one to each player. Peek privately.</p></li>
+<li><p>Make two piles: Platform Cards and Action Cards. Put the CBYDP list where everyone can see it.</p></li>
+<li><p>Get the ballot box, chips, IP tokens, and Vote Buying Cards ready. The moderator keeps the Vote Buying Cards.</p></li>
+<li><p>Give starting Influence Points: <strong>voters get 3 IP, candidates get 10 IP.</strong></p></li>
+</ol>
+<p style="margin-top:14px" class="note">Hand limits: a candidate holds up to 3 Platform Cards. A voter holds up to 2 Action Cards.</p>
+</div></section>
+
+<section id="campaign"><div class="wrap">
+<h2>Phase 1: The campaign</h2>
+<p class="simple">The campaign is the time before election day when candidates try to win trust. In our game it is 3 rounds. Every round has the same 3 steps.</p>
+<p class="full">The 10-day campaign period is condensed into three campaign rounds. Each round follows the same sequence.</p>
+<ol class="steps">
+<li><h3>Morning Briefing: draw cards</h3>
+<p><strong>Candidates:</strong> draw 5 Platform Cards, keep 3, discard the rest.</p>
+<p><strong>Voters:</strong> draw 1 Action Card. You may keep it and use it any time this round.</p>
+<p class="full" style="margin-top:8px">If the Action deck runs out, the moderator reshuffles the discard pile. If there is nothing to reshuffle, nobody draws until cards are available. Voters draw a replacement right after playing an Action Card, and unused cards stay in hand between rounds.</p></li>
+<li><h3>Platform and Action Phase: take turns</h3>
+<p><strong>Candidates:</strong> play 1 Platform Card face up, say which CBYDP topic it is, and explain how it helps the community. It costs you <span class="minus">1 IP</span>.</p>
+<p><strong>Voters:</strong> play up to 1 Action Card, or pass. If you play one, you get <span class="plus">1 IP</span> from the bank.</p>
+<p class="full" style="margin-top:8px">Played Platform Cards cannot be reused unless the deck runs out and is reshuffled. Used Action Cards go to the discard pile.</p></li>
+<li><h3>Vote Buying Deal: TraPo phase</h3>
+<p>The moderator asks everyone except the TraPo candidate(s) to close their eyes. Then the secret deals begin. See the box below.</p></li>
+</ol>
+<p class="note" style="margin-top:14px">After step 3, start the next round. Stop after round 3.</p>
+
+<h3 style="margin-top:32px">How secret vote buying works</h3>
+<p class="simple">A TraPo can offer a voter a reward in exchange for their vote. The voter says yes or no in secret. Only the moderator knows.</p>
+<div class="compare">
+<div class="card voter"><span class="tag">Voter says YES</span>
+<p>The voter keeps the Vote Buying Card secretly and gets <span class="plus">+2 IP</span> from the candidate. The TraPo gets <span class="plus">+3 IP</span> from the bank. The moderator writes the deal down.</p></div>
+<div class="card trapo"><span class="tag">Voter says NO</span>
+<p>The voter gives the card back. The TraPo loses <span class="minus">2 IP</span>, which goes to the bank. No deal is recorded.</p></div>
+</div>
+<p style="margin-top:14px" class="full">Only five Vote Buying Cards exist. The moderator makes sure no more than five are issued and every accepted deal is recorded accurately.</p>
+<p style="margin-top:14px" class="note">Remember: vote buying is wrong in real life. In this game we learn how it works so we can spot it and stop it.</p>
+</div></section>
+
+<section id="cards"><div class="wrap">
+<h2>Action Cards</h2>
+<p>Voters use these to find out the truth. Tap a card name to read it.</p>
+<div class="tabs" role="tablist" aria-label="Action cards">
+<button role="tab" aria-selected="true" aria-controls="p0" id="t0">Reveal</button>
+<button role="tab" aria-selected="false" aria-controls="p1" id="t1">Whistleblow</button>
+<button role="tab" aria-selected="false" aria-controls="p2" id="t2">People’s Question</button>
+<button role="tab" aria-selected="false" aria-controls="p3" id="t3">Pulong-Pulong</button>
+<button role="tab" aria-selected="false" aria-controls="p4" id="t4">Policy Peek</button>
+<button role="tab" aria-selected="false" aria-controls="p5" id="t5">Padrino System</button>
+</div>
+<div class="panel" role="tabpanel" id="p0" aria-labelledby="t0"><h3>Reveal</h3><p class="copies">4 cards</p>
+<p class="simple">Pick a candidate. The moderator secretly shows you if they are Civic or TraPo. Keep it a secret!</p>
+<p class="full">Privately reveals whether a selected candidate is a Civic Candidate or a TraPo Candidate. The voter must keep the information secret.</p></div>
+<div class="panel" role="tabpanel" id="p1" aria-labelledby="t1" hidden><h3>Whistleblow</h3><p class="copies">2 cards</p>
+<p class="simple">Say out loud, “I think this candidate is a TraPo!” That candidate must show their role to everyone.</p>
+<p><span class="plus">Right?</span> You gain 3 IP and the TraPo loses 3 IP.<br><span class="minus">Wrong?</span> You lose 3 IP. (You cannot go below 0.)</p>
+<p class="full">Accuses a candidate of being a TraPo Candidate and forces them to reveal their role.</p></div>
+<div class="panel" role="tabpanel" id="p2" aria-labelledby="t2" hidden><h3>People’s Question</h3><p class="copies">9 cards</p>
+<p class="simple">Choose a CBYDP topic, like Health. Every candidate must say out loud if they support it. If they have a matching Platform Card, they can show it as proof.</p>
+<p class="full">The voter selects one CBYDP category. All candidates must publicly state whether they support it. Candidates with a matching Platform Card may place it face-up to demonstrate their commitment.</p></div>
+<div class="panel" role="tabpanel" id="p3" aria-labelledby="t3" hidden><h3>Pulong-Pulong (Town Hall Meeting)</h3><p class="copies">9 cards</p>
+<p class="simple">Every candidate announces their number one topic. For the rest of the round, at least half of their Platform Cards must match that topic.</p>
+<p>“Half” rounds up: 1 of 3 is not enough, but 2 of 3 works. 2 of 5 is not enough, but 3 of 5 works.</p>
+<p class="full">A candidate may declare a category matching a Platform Card already played this round. The rule applies only to cards played after the declaration.</p></div>
+<div class="panel" role="tabpanel" id="p4" aria-labelledby="t4" hidden><h3>Policy Peek</h3><p class="copies">8 cards</p>
+<p class="simple">Pick a candidate and secretly look at 2 of their Platform Cards. Then tell everyone if you support their plan or not.</p>
+<p class="full">The voter selects a candidate and privately inspects two of their Platform Cards, then publicly declares whether they endorse the candidate’s platform.</p></div>
+<div class="panel" role="tabpanel" id="p5" aria-labelledby="t5" hidden><h3>Padrino System</h3><p class="copies">8 cards</p>
+<p class="simple">Secretly look at the top 3 Action Cards. Keep 1. Put the rest back and shuffle.</p>
+<p class="full">If fewer than three cards remain, the moderator reshuffles available discards as necessary.</p></div>
+</div></section>
+
+<section id="election"><div class="wrap">
+<h2>Phase 2: Election day</h2>
+<ol class="steps">
+<li><h3>Silence Period</h3><p>The campaign is over. <strong>No more cards or deals.</strong> Candidates may give one short final speech asking for support. The moderator decides before the game if speeches are optional or required.</p></li>
+<li><h3>Secret Ballot</h3><p>Everyone gets 1 Ballot Chip and writes their choice on their paper, then drops it in the box. Nobody shows their vote.</p></li>
+<li><h3>Count the votes</h3><p>The moderator opens the box, counts out loud, and certifies the result with the COMELEC stamp. The candidate with the most votes becomes <strong>SK Chairperson-Elect</strong>.</p></li>
+</ol>
+<h3 style="margin-top:28px">What if there is a tie?</h3>
+<div class="grid">
+<div class="card"><span class="tag">1st</span><h3>Runoff</h3><p>Two tied candidates give short extra speeches, then everyone votes again. With 3 tied, the two finalists go to the runoff. The moderator uses a fair rule announced before the game.</p></div>
+<div class="card"><span class="tag">2nd</span><h3>More IP wins</h3><p>Still tied after the runoff? The candidate with more Influence Points wins.</p></div>
+<div class="card"><span class="tag">3rd</span><h3>Coin toss</h3><p>Same IP too? The moderator flips a coin in front of everyone.</p></div>
+</div>
+</div></section>
+
+<section id="ip"><div class="wrap">
+<h2>Influence Points (IP)</h2>
+<p class="simple">IP shows how much people trust you and how much power you have. You gain and lose IP while you play.</p>
+<p class="full">Influence Points represent political influence, credibility, and the ability to hold public officials accountable. The moderator tracks all changes and resolves disputes.</p>
+<div class="scroll"><table class="tbl"><thead><tr><th>What happens</th><th>IP change</th></tr></thead><tbody>
+<tr><td>Candidate plays a Platform Card</td><td class="minus">−1 for the candidate</td></tr>
+<tr><td>Voter plays an Action Card</td><td class="plus">+1 for the voter</td></tr>
+<tr><td>Voter accepts a vote-buying deal</td><td><span class="plus">+2 voter</span>, <span class="plus">+3 TraPo</span></td></tr>
+<tr><td>Voter rejects a vote-buying deal</td><td class="minus">−2 for the TraPo</td></tr>
+<tr><td>Correct Whistleblow</td><td><span class="plus">+3 voter</span>, <span class="minus">−3 TraPo</span></td></tr>
+<tr><td>Wrong Whistleblow</td><td class="minus">−3 voter (never below 0)</td></tr>
+</tbody></table></div>
+<h3 style="margin-top:32px">Quick answers</h3>
+<details><summary>How many players?</summary><p>7 to 10, plus one moderator who does not play.</p></details>
+<details><summary>How many campaign rounds?</summary><p>3 rounds. Each has Morning Briefing, Platform and Action Phase, and the TraPo Vote Buying phase.</p></details>
+<details><summary>Can a voter play many Action Cards in a round?</summary><p>No. Up to 1 per round.</p></details>
+<details><summary>Can candidates vote for themselves?</summary><p>Yes. Every player has 1 vote.</p></details>
+<details><summary>What should we talk about when the game ends?</summary><p>Did voters care most about ideas, influence, or secret deals? Did vote buying change who won? Could voters spot cheating? What does this teach us about real elections?</p></details>
+<p class="note" style="margin-top:20px">Elections choose who leads. Good voters also check whether leaders keep their promises.</p>
+</div></section>
+</main>
+<footer><div class="wrap">POLITI-KNOWS, Playtesting Edition. A civic education card game.</div></footer>
+
+<script>
+(function(){
+var body=document.body,btns=document.querySelectorAll('.toggle button');
+btns.forEach(function(b){b.addEventListener('click',function(){
+body.setAttribute('data-mode',b.dataset.set);
+btns.forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});
+})});
+var tabs=[].slice.call(document.querySelectorAll('[role=tab]'));
+function sel(t){tabs.forEach(function(x,i){var on=x===t;x.setAttribute('aria-selected',on);x.tabIndex=on?0:-1;document.getElementById('p'+i).hidden=!on})}
+tabs.forEach(function(t,i){t.tabIndex=i?-1:0;t.addEventListener('click',function(){sel(t)});
+t.addEventListener('keydown',function(e){var n=e.key==='ArrowRight'?1:e.key==='ArrowLeft'?-1:0;if(n){var x=tabs[(i+n+tabs.length)%tabs.length];x.focus();sel(x)}})});
+})();
+</script>
+</body>
+</html>
